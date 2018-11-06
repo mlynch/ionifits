@@ -1,21 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutPage } from './about.page';
+import { TimeOffPage } from './time-off.page';
 
-describe('AboutPage', () => {
-  let component: AboutPage;
-  let fixture: ComponentFixture<AboutPage>;
+describe('TimeOffPage', () => {
+  let component: TimeOffPage;
+  let fixture: ComponentFixture<TimeOffPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AboutPage],
+      declarations: [ TimeOffPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AboutPage);
+    fixture = TestBed.createComponent(TimeOffPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

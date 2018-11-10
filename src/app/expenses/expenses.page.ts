@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AmplifyService } from 'aws-amplify-angular';
 
 @Component({
   selector: 'app-expenses',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesPage implements OnInit {
 
-  constructor() { }
+  constructor(public amplifyService: AmplifyService) {
+
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,56 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "ionifits-20181107165355-authRole",
+			"UnauthRoleArn": "arn:aws:iam::956920542798:role/ionifits-20181107165355-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::956920542798:role/ionifits-20181107165355-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "ionifits-20181107165355-deployment",
+			"UnauthRoleName": "ionifits-20181107165355-unauthRole",
+			"StackName": "ionifits-20181107165355",
+			"StackId": "arn:aws:cloudformation:us-east-2:956920542798:stack/ionifits-20181107165355/019761d0-e2e0-11e8-8f2e-0a22d9c25c48"
+		}
+	},
+	"auth": {
+		"cognitoc43a4109": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181107165355-deployment/amplify-cfn-templates/auth/cognitoc43a4109-cloudformation-template.yml",
+				"logicalId": "authcognitoc43a4109"
+			},
+			"lastPushTimeStamp": "2018-11-07T23:06:49.081Z",
+			"output": {
+				"AppClientSecret": "fkqdqfdemmmsgg8qod597u3o8t06898didtpdtejkslhgpr9g3s",
+				"UserPoolId": "us-east-2_iw70xoeVr",
+				"AppClientIDWeb": "sr2oltr9oq1ruk3oaklniitai",
+				"AppClientID": "nud82qql738ko9e0ea70hsihv",
+				"IdentityPoolId": "us-east-2:c5371725-9b44-4297-a6a5-c6fb737a59c0",
+				"IdentityPoolName": "cognitoc43a4109_identitypool_c43a4109",
+				"UserPoolName": "cognitoc43a4109_userpool_c43a4109"
+			},
+			"lastPushDirHash": "1Bi8Ur/LM1iQwMyCd/fTwvq2/7Y="
+		}
+	},
+	"storage": {
+		"dynamoc74240a2": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181107165355-deployment/amplify-cfn-templates/storage/dynamoc74240a2-cloudformation-template.json",
+				"logicalId": "storagedynamoc74240a2"
+			},
+			"lastPushTimeStamp": "2018-11-07T23:06:49.081Z",
+			"output": {
+				"PartitionKeyName": "id",
+				"SortKeyName": "name",
+				"SortKeyType": "S",
+				"Region": "us-east-2",
+				"Arn": "arn:aws:dynamodb:us-east-2:956920542798:table/person",
+				"PartitionKeyType": "S",
+				"Name": "person"
+			},
+			"lastPushDirHash": "ykLGw7Towv0FOsQubCvp+f/BfNw="
+		}
+	}
+}

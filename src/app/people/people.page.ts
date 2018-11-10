@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AmplifyService } from 'aws-amplify-angular';
 
 @Component({
   selector: 'app-people',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeoplePage implements OnInit {
 
-  constructor() { }
+  constructor(public amplifyService: AmplifyService) {
+   const storage = amplifyService.storage();
+   console.log('Got storage service', storage);
+  }
 
   ngOnInit() {
   }

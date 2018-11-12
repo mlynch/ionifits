@@ -1,0 +1,225 @@
+type Mutation {
+  createPerson(input: CreatePersonInput!): Person
+  updatePerson(input: UpdatePersonInput!): Person
+  deletePerson(input: DeletePersonInput!): Person
+  createMessage(input: CreateMessageInput!): Message
+  updateMessage(input: UpdateMessageInput!): Message
+  deleteMessage(input: DeleteMessageInput!): Message
+  createExpense(input: CreateExpenseInput!): Expense
+  updateExpense(input: UpdateExpenseInput!): Expense
+  deleteExpense(input: DeleteExpenseInput!): Expense
+}
+
+type Query {
+  getPerson(id: ID!): Person
+  listPersons(filter: ModelPersonFilterInput, limit: Int, nextToken: String): ModelPersonConnection
+  getMessage(id: ID!): Message
+  listMessages(filter: ModelMessageFilterInput, limit: Int, nextToken: String): ModelMessageConnection
+  getExpense(id: ID!): Expense
+  listExpenses(filter: ModelExpenseFilterInput, limit: Int, nextToken: String): ModelExpenseConnection
+}
+
+type Subscription {
+  onCreatePerson: Person @aws_subscribe(mutations: ["createPerson"])
+  onUpdatePerson: Person @aws_subscribe(mutations: ["updatePerson"])
+  onDeletePerson: Person @aws_subscribe(mutations: ["deletePerson"])
+  onCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
+  onUpdateMessage: Message @aws_subscribe(mutations: ["updateMessage"])
+  onDeleteMessage: Message @aws_subscribe(mutations: ["deleteMessage"])
+  onCreateExpense: Expense @aws_subscribe(mutations: ["createExpense"])
+  onUpdateExpense: Expense @aws_subscribe(mutations: ["updateExpense"])
+  onDeleteExpense: Expense @aws_subscribe(mutations: ["deleteExpense"])
+}
+
+type Person {
+  id: ID!
+  name: String!
+  email: String
+  jobTitle: String
+  hiredAt: String
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelPersonConnection {
+  items: [Person]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelPersonFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  email: ModelStringFilterInput
+  jobTitle: ModelStringFilterInput
+  hiredAt: ModelStringFilterInput
+  and: [ModelPersonFilterInput]
+  or: [ModelPersonFilterInput]
+  not: ModelPersonFilterInput
+}
+
+input CreatePersonInput {
+  name: String!
+  email: String
+  jobTitle: String
+  hiredAt: String
+}
+
+input UpdatePersonInput {
+  id: ID!
+  name: String
+  email: String
+  jobTitle: String
+  hiredAt: String
+}
+
+input DeletePersonInput {
+  id: ID
+}
+
+type Message {
+  id: ID!
+  senderId: ID!
+  title: String!
+  text: String!
+  date: String
+  read: Boolean
+}
+
+type ModelMessageConnection {
+  items: [Message]
+  nextToken: String
+}
+
+input ModelMessageFilterInput {
+  id: ModelIDFilterInput
+  senderId: ModelIDFilterInput
+  title: ModelStringFilterInput
+  text: ModelStringFilterInput
+  date: ModelStringFilterInput
+  read: ModelBooleanFilterInput
+  and: [ModelMessageFilterInput]
+  or: [ModelMessageFilterInput]
+  not: ModelMessageFilterInput
+}
+
+input CreateMessageInput {
+  senderId: ID!
+  title: String!
+  text: String!
+  date: String
+  read: Boolean
+}
+
+input UpdateMessageInput {
+  id: ID!
+  senderId: ID
+  title: String
+  text: String
+  date: String
+  read: Boolean
+}
+
+input DeleteMessageInput {
+  id: ID
+}
+
+type Expense {
+  amount: Int
+  date: String
+  expenseDate: String
+  personId: ID
+  id: ID
+}
+
+type ModelExpenseConnection {
+  items: [Expense]
+  nextToken: String
+}
+
+input ModelExpenseFilterInput {
+  amount: ModelIntFilterInput
+  date: ModelStringFilterInput
+  expenseDate: ModelStringFilterInput
+  personId: ModelIDFilterInput
+  id: ModelIDFilterInput
+  and: [ModelExpenseFilterInput]
+  or: [ModelExpenseFilterInput]
+  not: ModelExpenseFilterInput
+}
+
+input CreateExpenseInput {
+  amount: Int
+  date: String
+  expenseDate: String
+  personId: ID
+}
+
+input UpdateExpenseInput {
+  amount: Int
+  date: String
+  expenseDate: String
+  personId: ID
+  id: ID!
+}
+
+input DeleteExpenseInput {
+  id: ID
+}

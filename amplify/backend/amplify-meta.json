@@ -52,5 +52,14 @@
 			},
 			"lastPushDirHash": "ykLGw7Towv0FOsQubCvp+f/BfNw="
 		}
+	},
+	"api": {
+		"ionifits": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS"
+			}
+		}
 	}
 }

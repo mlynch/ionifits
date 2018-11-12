@@ -10,21 +10,21 @@
     <ion-router-outlet name="contact"></ion-router-outlet>
   </ion-tab>
 
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" layout="icon-hide">
 
-    <ion-tab-button tab="home" href="/tabs/(home:home)">
+    <ion-tab-button tab="home" href="/tabs/(people:people)">
       <ion-icon name="home"></ion-icon>
-      <ion-label>Hello</ion-label>
+      <ion-label>People</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="about" href="/tabs/(about:about)">
+    <ion-tab-button tab="about" href="/tabs/(messages:messages)">
       <ion-icon name="information-circle"></ion-icon>
-      <ion-label>About</ion-label>
+      <ion-label>Messages</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="contact" href="/tabs/(contact:contact)">
+    <ion-tab-button tab="contact" href="/tabs/(expenses:expenses)">
       <ion-icon name="contacts"></ion-icon>
-      <ion-label>Contact</ion-label>
+      <ion-label>Expenses</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>

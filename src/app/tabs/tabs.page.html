@@ -1,29 +1,29 @@
 <ion-tabs>
 
-  <ion-tab tab="home">
-    <ion-router-outlet name="home"></ion-router-outlet>
+  <ion-tab tab="people">
+    <ion-router-outlet name="people"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="about">
-    <ion-router-outlet name="about"></ion-router-outlet>
+  <ion-tab tab="messages">
+    <ion-router-outlet name="messages"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="contact">
-    <ion-router-outlet name="contact"></ion-router-outlet>
+  <ion-tab tab="expenses">
+    <ion-router-outlet name="expenses"></ion-router-outlet>
   </ion-tab>
 
   <ion-tab-bar slot="bottom" layout="icon-hide">
 
-    <ion-tab-button tab="home" href="/tabs/(people:people)">
-      <ion-icon name="home"></ion-icon>
+    <ion-tab-button tab="people" href="/tabs/(people:people)">
+      <ion-icon name="person"></ion-icon>
       <ion-label>People</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="about" href="/tabs/(messages:messages)">
-      <ion-icon name="information-circle"></ion-icon>
+      <ion-icon name="chatbubbles"></ion-icon>
       <ion-label>Messages</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="contact" href="/tabs/(expenses:expenses)">
-      <ion-icon name="contacts"></ion-icon>
+    <ion-tab-button tab="expenses" href="/tabs/(expenses:expenses)">
+      <ion-icon name="cash"></ion-icon>
       <ion-label>Expenses</ion-label>
     </ion-tab-button>
 

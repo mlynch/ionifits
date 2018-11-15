@@ -1,9 +1,0 @@
-{
-    "AppSyncApiName": "ionifits",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authcognitoc43a4109",
-            "Outputs.UserPoolId"
-        ]
-    }
-}

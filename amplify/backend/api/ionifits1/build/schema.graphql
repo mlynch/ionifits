@@ -1,0 +1,116 @@
+type Person {
+  id: ID!
+  name: String!
+  description: String
+  email: String
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelPersonConnection {
+  items: [Person]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelPersonFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  description: ModelStringFilterInput
+  email: ModelStringFilterInput
+  and: [ModelPersonFilterInput]
+  or: [ModelPersonFilterInput]
+  not: ModelPersonFilterInput
+}
+
+type Query {
+  getPerson(id: ID!): Person
+  listPersons(filter: ModelPersonFilterInput, limit: Int, nextToken: String): ModelPersonConnection
+}
+
+input CreatePersonInput {
+  id: ID
+  name: String!
+  description: String
+  email: String
+}
+
+input UpdatePersonInput {
+  id: ID!
+  name: String
+  description: String
+  email: String
+}
+
+input DeletePersonInput {
+  id: ID
+}
+
+type Mutation {
+  createPerson(input: CreatePersonInput!): Person
+  updatePerson(input: UpdatePersonInput!): Person
+  deletePerson(input: DeletePersonInput!): Person
+}
+
+type Subscription {
+  onCreatePerson: Person @aws_subscribe(mutations: ["createPerson"])
+  onUpdatePerson: Person @aws_subscribe(mutations: ["updatePerson"])
+  onDeletePerson: Person @aws_subscribe(mutations: ["deletePerson"])
+}

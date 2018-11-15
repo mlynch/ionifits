@@ -1,14 +1,14 @@
 {
     "providers": {
         "awscloudformation": {
-            "AuthRoleName": "ionifits-20181107165355-authRole",
-            "UnauthRoleArn": "arn:aws:iam::956920542798:role/ionifits-20181107165355-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::956920542798:role/ionifits-20181107165355-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "ionifits-20181107165355-deployment",
-            "UnauthRoleName": "ionifits-20181107165355-unauthRole",
-            "StackName": "ionifits-20181107165355",
-            "StackId": "arn:aws:cloudformation:us-east-2:956920542798:stack/ionifits-20181107165355/019761d0-e2e0-11e8-8f2e-0a22d9c25c48"
+            "AuthRoleName": "ionifits-20181115130528-authRole",
+            "UnauthRoleArn": "arn:aws:iam::319312831725:role/ionifits-20181115130528-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::319312831725:role/ionifits-20181115130528-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "ionifits-20181115130528-deployment",
+            "UnauthRoleName": "ionifits-20181115130528-unauthRole",
+            "StackName": "ionifits-20181115130528",
+            "StackId": "arn:aws:cloudformation:us-west-2:319312831725:stack/ionifits-20181115130528/6ae59b50-e909-11e8-9020-50d5ca789eae"
         }
     }
 }

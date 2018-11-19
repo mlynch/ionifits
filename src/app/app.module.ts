@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+import { AmplifyAngularModule, AmplifyIonicModule, AmplifyService } from 'aws-amplify-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +17,8 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AmplifyAngularModule
+    AmplifyAngularModule,
+    AmplifyIonicModule
   ],
   providers: [
     StatusBar,

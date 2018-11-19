@@ -8,12 +8,12 @@ import { ExpensesPage } from '../expenses/expenses.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'pages',
     component: TabsPage,
     children: [
       {
         path: '',
-        redirectTo: '/tabs/(people:people)',
+        redirectTo: '/tabs/pages/(people:people)',
         pathMatch: 'full',
       },
       {
@@ -34,8 +34,8 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/(people:people)',
+    path: 'tabs',
+    redirectTo: '/tabs/pages/(people:people)',
     pathMatch: 'full'
   }
 ];

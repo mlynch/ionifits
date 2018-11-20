@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
       console.log('User login state', userState);
       console.log(router.config);
       if (userState.user) {
-        router.navigate(['tabs/pages'])
+        router.navigate(['app/tabs'])
       }
     });
   }

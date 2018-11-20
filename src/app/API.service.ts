@@ -8,15 +8,15 @@ import * as Observable from "zen-observable";
 export type CreatePersonInput = {
   id?: string | null;
   name: string;
-  description?: string | null;
   email?: string | null;
+  jobTitle?: string | null;
 };
 
 export type UpdatePersonInput = {
   id: string;
   name?: string | null;
-  description?: string | null;
   email?: string | null;
+  jobTitle?: string | null;
 };
 
 export type DeletePersonInput = {
@@ -26,8 +26,8 @@ export type DeletePersonInput = {
 export type ModelPersonFilterInput = {
   id?: ModelIDFilterInput | null;
   name?: ModelStringFilterInput | null;
-  description?: ModelStringFilterInput | null;
   email?: ModelStringFilterInput | null;
+  jobTitle?: ModelStringFilterInput | null;
   and?: Array<ModelPersonFilterInput | null> | null;
   or?: Array<ModelPersonFilterInput | null> | null;
   not?: ModelPersonFilterInput | null;
@@ -63,32 +63,32 @@ export type CreatePersonMutation = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type UpdatePersonMutation = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type DeletePersonMutation = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type GetPersonQuery = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type ListPersonsQuery = {
@@ -97,8 +97,8 @@ export type ListPersonsQuery = {
     __typename: "Person";
     id: string;
     name: string;
-    description: string | null;
     email: string | null;
+    jobTitle: string | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -107,24 +107,24 @@ export type OnCreatePersonSubscription = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type OnUpdatePersonSubscription = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 export type OnDeletePersonSubscription = {
   __typename: string;
   id: string;
   name: string;
-  description: string | null;
   email: string | null;
+  jobTitle: string | null;
 };
 
 @Injectable({
@@ -137,8 +137,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -155,8 +155,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -173,8 +173,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -191,8 +191,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -215,8 +215,8 @@ export class APIService {
             __typename
             id
             name
-            description
             email
+            jobTitle
           }
           nextToken
         }
@@ -243,8 +243,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`
     )
@@ -257,8 +257,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`
     )
@@ -271,8 +271,8 @@ export class APIService {
           __typename
           id
           name
-          description
           email
+          jobTitle
         }
       }`
     )

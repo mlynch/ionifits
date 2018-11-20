@@ -3,23 +3,23 @@ subscription OnCreatePerson {
   onCreatePerson {
     id
     name
-    description
     email
+    jobTitle
   }
 }
 subscription OnUpdatePerson {
   onUpdatePerson {
     id
     name
-    description
     email
+    jobTitle
   }
 }
 subscription OnDeletePerson {
   onDeletePerson {
     id
     name
-    description
     email
+    jobTitle
   }
 }

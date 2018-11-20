@@ -3,8 +3,8 @@ query GetPerson($id: ID!) {
   getPerson(id: $id) {
     id
     name
-    description
     email
+    jobTitle
   }
 }
 query ListPersons(
@@ -16,8 +16,8 @@ query ListPersons(
     items {
       id
       name
-      description
       email
+      jobTitle
     }
     nextToken
   }

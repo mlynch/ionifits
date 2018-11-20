@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "ionifits",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito8b79fe18",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "schemaGraphql": "s3://ionifits-20181120141304-deployment/amplify-appsync-files/schema.graphql.1542745181619",
+    "ResolverBucket": "ionifits-20181120141304-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1542745181619"
+}

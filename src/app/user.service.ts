@@ -30,7 +30,7 @@ export class UserService {
                     user: this.user,
                     isLoggedIn: false
                 });
-            } else {
+            } else if (authState.state === 'signedIn') {
                 this.user = authState.user;
                 this._userState.next({
                     user: this.user,

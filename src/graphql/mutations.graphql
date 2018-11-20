@@ -3,23 +3,23 @@ mutation CreatePerson($input: CreatePersonInput!) {
   createPerson(input: $input) {
     id
     name
-    description
     email
+    jobTitle
   }
 }
 mutation UpdatePerson($input: UpdatePersonInput!) {
   updatePerson(input: $input) {
     id
     name
-    description
     email
+    jobTitle
   }
 }
 mutation DeletePerson($input: DeletePersonInput!) {
   deletePerson(input: $input) {
     id
     name
-    description
     email
+    jobTitle
   }
 }

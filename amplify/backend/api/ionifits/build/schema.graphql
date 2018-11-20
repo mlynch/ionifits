@@ -1,8 +1,8 @@
 type Person {
   id: ID!
   name: String!
-  description: String
   email: String
+  jobTitle: String
 }
 
 enum ModelSortDirection {
@@ -73,8 +73,8 @@ input ModelBooleanFilterInput {
 input ModelPersonFilterInput {
   id: ModelIDFilterInput
   name: ModelStringFilterInput
-  description: ModelStringFilterInput
   email: ModelStringFilterInput
+  jobTitle: ModelStringFilterInput
   and: [ModelPersonFilterInput]
   or: [ModelPersonFilterInput]
   not: ModelPersonFilterInput
@@ -88,15 +88,15 @@ type Query {
 input CreatePersonInput {
   id: ID
   name: String!
-  description: String
   email: String
+  jobTitle: String
 }
 
 input UpdatePersonInput {
   id: ID!
   name: String
-  description: String
   email: String
+  jobTitle: String
 }
 
 input DeletePersonInput {

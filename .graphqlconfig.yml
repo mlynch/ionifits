@@ -1,5 +1,5 @@
 projects:
-  ionifits1:
+  ionifits:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.graphql
@@ -10,7 +10,7 @@ projects:
         codeGenTarget: angular
         generatedFileName: src/app/API.service.ts
         docsFilePath: src/graphql
-        graphQLApiId: to3vnw5ld5hdnoionc46ophxbq
+        graphQLApiId: drqhqq7pr5gsvlxmg4eo2upggq
       endpoints:
         prod: >-
-          https://seanrr4mzbh43j2ic4zyyru3oi.appsync-api.us-west-2.amazonaws.com/graphql
+          https://mdrhvj2e6zditmplzlsy6tcb5u.appsync-api.us-west-2.amazonaws.com/graphql

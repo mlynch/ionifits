@@ -13,6 +13,7 @@ export class ExpensesPage implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

@@ -10,6 +10,7 @@ export type CreatePersonInput = {
   name: string;
   email?: string | null;
   jobTitle?: string | null;
+  profileImage?: string | null;
 };
 
 export type UpdatePersonInput = {
@@ -17,9 +18,28 @@ export type UpdatePersonInput = {
   name?: string | null;
   email?: string | null;
   jobTitle?: string | null;
+  profileImage?: string | null;
 };
 
 export type DeletePersonInput = {
+  id?: string | null;
+};
+
+export type CreateExpenseInput = {
+  id?: string | null;
+  title?: string | null;
+  amount?: number | null;
+  date?: string | null;
+};
+
+export type UpdateExpenseInput = {
+  id: string;
+  title?: string | null;
+  amount?: number | null;
+  date?: string | null;
+};
+
+export type DeleteExpenseInput = {
   id?: string | null;
 };
 
@@ -28,6 +48,7 @@ export type ModelPersonFilterInput = {
   name?: ModelStringFilterInput | null;
   email?: ModelStringFilterInput | null;
   jobTitle?: ModelStringFilterInput | null;
+  profileImage?: ModelStringFilterInput | null;
   and?: Array<ModelPersonFilterInput | null> | null;
   or?: Array<ModelPersonFilterInput | null> | null;
   not?: ModelPersonFilterInput | null;
@@ -59,12 +80,35 @@ export type ModelStringFilterInput = {
   beginsWith?: string | null;
 };
 
+export type ModelExpenseFilterInput = {
+  id?: ModelIDFilterInput | null;
+  title?: ModelStringFilterInput | null;
+  amount?: ModelIntFilterInput | null;
+  date?: ModelStringFilterInput | null;
+  and?: Array<ModelExpenseFilterInput | null> | null;
+  or?: Array<ModelExpenseFilterInput | null> | null;
+  not?: ModelExpenseFilterInput | null;
+};
+
+export type ModelIntFilterInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  contains?: number | null;
+  notContains?: number | null;
+  between?: Array<number | null> | null;
+};
+
 export type CreatePersonMutation = {
   __typename: string;
   id: string;
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
 };
 
 export type UpdatePersonMutation = {
@@ -73,6 +117,7 @@ export type UpdatePersonMutation = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
 };
 
 export type DeletePersonMutation = {
@@ -81,6 +126,31 @@ export type DeletePersonMutation = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
+};
+
+export type CreateExpenseMutation = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
+};
+
+export type UpdateExpenseMutation = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
+};
+
+export type DeleteExpenseMutation = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
 };
 
 export type GetPersonQuery = {
@@ -89,6 +159,7 @@ export type GetPersonQuery = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
 };
 
 export type ListPersonsQuery = {
@@ -99,6 +170,27 @@ export type ListPersonsQuery = {
     name: string;
     email: string | null;
     jobTitle: string | null;
+    profileImage: string | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetExpenseQuery = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
+};
+
+export type ListExpensesQuery = {
+  __typename: string;
+  items: Array<{
+    __typename: "Expense";
+    id: string;
+    title: string | null;
+    amount: number | null;
+    date: string | null;
   } | null> | null;
   nextToken: string | null;
 };
@@ -109,6 +201,7 @@ export type OnCreatePersonSubscription = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
 };
 
 export type OnUpdatePersonSubscription = {
@@ -117,6 +210,7 @@ export type OnUpdatePersonSubscription = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
 };
 
 export type OnDeletePersonSubscription = {
@@ -125,6 +219,31 @@ export type OnDeletePersonSubscription = {
   name: string;
   email: string | null;
   jobTitle: string | null;
+  profileImage: string | null;
+};
+
+export type OnCreateExpenseSubscription = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
+};
+
+export type OnUpdateExpenseSubscription = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
+};
+
+export type OnDeleteExpenseSubscription = {
+  __typename: string;
+  id: string;
+  title: string | null;
+  amount: number | null;
+  date: string | null;
 };
 
 @Injectable({
@@ -139,6 +258,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -157,6 +277,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -175,6 +296,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -185,6 +307,66 @@ export class APIService {
     )) as any;
     return <DeletePersonMutation>response.data.deletePerson;
   }
+  async CreateExpense(
+    input: CreateExpenseInput
+  ): Promise<CreateExpenseMutation> {
+    const statement = `mutation CreateExpense($input: CreateExpenseInput!) {
+        createExpense(input: $input) {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateExpenseMutation>response.data.createExpense;
+  }
+  async UpdateExpense(
+    input: UpdateExpenseInput
+  ): Promise<UpdateExpenseMutation> {
+    const statement = `mutation UpdateExpense($input: UpdateExpenseInput!) {
+        updateExpense(input: $input) {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateExpenseMutation>response.data.updateExpense;
+  }
+  async DeleteExpense(
+    input: DeleteExpenseInput
+  ): Promise<DeleteExpenseMutation> {
+    const statement = `mutation DeleteExpense($input: DeleteExpenseInput!) {
+        deleteExpense(input: $input) {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteExpenseMutation>response.data.deleteExpense;
+  }
   async GetPerson(id: string): Promise<GetPersonQuery> {
     const statement = `query GetPerson($id: ID!) {
         getPerson(id: $id) {
@@ -193,6 +375,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -217,6 +400,7 @@ export class APIService {
             name
             email
             jobTitle
+            profileImage
           }
           nextToken
         }
@@ -236,6 +420,57 @@ export class APIService {
     )) as any;
     return <ListPersonsQuery>response.data.listPersons;
   }
+  async GetExpense(id: string): Promise<GetExpenseQuery> {
+    const statement = `query GetExpense($id: ID!) {
+        getExpense(id: $id) {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetExpenseQuery>response.data.getExpense;
+  }
+  async ListExpenses(
+    filter?: ModelExpenseFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListExpensesQuery> {
+    const statement = `query ListExpenses($filter: ModelExpenseFilterInput, $limit: Int, $nextToken: String) {
+        listExpenses(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            title
+            amount
+            date
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListExpensesQuery>response.data.listExpenses;
+  }
   OnCreatePersonListener: Observable<OnCreatePersonSubscription> = API.graphql(
     graphqlOperation(
       `subscription OnCreatePerson {
@@ -245,6 +480,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`
     )
@@ -259,6 +495,7 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`
     )
@@ -273,8 +510,57 @@ export class APIService {
           name
           email
           jobTitle
+          profileImage
         }
       }`
     )
   ) as Observable<OnDeletePersonSubscription>;
+
+  OnCreateExpenseListener: Observable<
+    OnCreateExpenseSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateExpense {
+        onCreateExpense {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`
+    )
+  ) as Observable<OnCreateExpenseSubscription>;
+
+  OnUpdateExpenseListener: Observable<
+    OnUpdateExpenseSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdateExpense {
+        onUpdateExpense {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`
+    )
+  ) as Observable<OnUpdateExpenseSubscription>;
+
+  OnDeleteExpenseListener: Observable<
+    OnDeleteExpenseSubscription
+  > = API.graphql(
+    graphqlOperation(
+      `subscription OnDeleteExpense {
+        onDeleteExpense {
+          __typename
+          id
+          title
+          amount
+          date
+        }
+      }`
+    )
+  ) as Observable<OnDeleteExpenseSubscription>;
 }

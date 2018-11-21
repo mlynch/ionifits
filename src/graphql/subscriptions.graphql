@@ -5,6 +5,7 @@ subscription OnCreatePerson {
     name
     email
     jobTitle
+    profileImage
   }
 }
 subscription OnUpdatePerson {
@@ -13,6 +14,7 @@ subscription OnUpdatePerson {
     name
     email
     jobTitle
+    profileImage
   }
 }
 subscription OnDeletePerson {
@@ -21,5 +23,30 @@ subscription OnDeletePerson {
     name
     email
     jobTitle
+    profileImage
+  }
+}
+subscription OnCreateExpense {
+  onCreateExpense {
+    id
+    title
+    amount
+    date
+  }
+}
+subscription OnUpdateExpense {
+  onUpdateExpense {
+    id
+    title
+    amount
+    date
+  }
+}
+subscription OnDeleteExpense {
+  onDeleteExpense {
+    id
+    title
+    amount
+    date
   }
 }

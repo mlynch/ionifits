@@ -140,10 +140,10 @@
 							"Outputs.UserPoolId"
 						]
 					},
-					"schemaGraphql": "s3://ionifits-20181120141304-deployment/amplify-appsync-files/schema.graphql.1542745181619",
+					"schemaGraphql": "s3://ionifits-20181120141304-deployment/amplify-appsync-files/schema.graphql.1542831279348",
 					"ResolverBucket": "ionifits-20181120141304-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1542745181619"
+					"DeploymentTimestamp": "1542831279348"
 				}
 			}
 		}

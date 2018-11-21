@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Add Person</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list lines="true">
+      <ion-item>
+        <ion-label color="primary">Name </ion-label>
+        <ion-input placeholder="Name" [(ngModel)]="person.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Email </ion-label>
+        <ion-input placeholder="Email" [(ngModel)]="person.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Job Title </ion-label>
+        <ion-input placeholder="Job title" [(ngModel)]="person.jobTitle"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-button class="save-btn" (click)="save()">Save</ion-button>
+    <ion-button class="dismiss-btn" (click)="cancel()">Cancel</ion-button>
+  </ion-footer>

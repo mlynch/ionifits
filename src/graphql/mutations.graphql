@@ -5,6 +5,7 @@ mutation CreatePerson($input: CreatePersonInput!) {
     name
     email
     jobTitle
+    profileImage
   }
 }
 mutation UpdatePerson($input: UpdatePersonInput!) {
@@ -13,6 +14,7 @@ mutation UpdatePerson($input: UpdatePersonInput!) {
     name
     email
     jobTitle
+    profileImage
   }
 }
 mutation DeletePerson($input: DeletePersonInput!) {
@@ -21,5 +23,30 @@ mutation DeletePerson($input: DeletePersonInput!) {
     name
     email
     jobTitle
+    profileImage
+  }
+}
+mutation CreateExpense($input: CreateExpenseInput!) {
+  createExpense(input: $input) {
+    id
+    title
+    amount
+    date
+  }
+}
+mutation UpdateExpense($input: UpdateExpenseInput!) {
+  updateExpense(input: $input) {
+    id
+    title
+    amount
+    date
+  }
+}
+mutation DeleteExpense($input: DeleteExpenseInput!) {
+  deleteExpense(input: $input) {
+    id
+    title
+    amount
+    date
   }
 }

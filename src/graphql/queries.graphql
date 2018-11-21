@@ -5,6 +5,7 @@ query GetPerson($id: ID!) {
     name
     email
     jobTitle
+    profileImage
   }
 }
 query ListPersons(
@@ -18,6 +19,30 @@ query ListPersons(
       name
       email
       jobTitle
+      profileImage
+    }
+    nextToken
+  }
+}
+query GetExpense($id: ID!) {
+  getExpense(id: $id) {
+    id
+    title
+    amount
+    date
+  }
+}
+query ListExpenses(
+  $filter: ModelExpenseFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listExpenses(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      amount
+      date
     }
     nextToken
   }

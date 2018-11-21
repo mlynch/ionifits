@@ -3,4 +3,12 @@ type Person @model {
   name: String!
   email: String
   jobTitle: String
+  profileImage: String
+}
+
+type Expense @model {
+  id: ID!
+  title: String
+  amount: Int
+  date: String
 }

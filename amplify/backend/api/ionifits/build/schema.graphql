@@ -3,6 +3,14 @@ type Person {
   name: String!
   email: String
   jobTitle: String
+  profileImage: String
+}
+
+type Expense {
+  id: ID!
+  title: String
+  amount: Int
+  date: String
 }
 
 enum ModelSortDirection {
@@ -75,6 +83,7 @@ input ModelPersonFilterInput {
   name: ModelStringFilterInput
   email: ModelStringFilterInput
   jobTitle: ModelStringFilterInput
+  profileImage: ModelStringFilterInput
   and: [ModelPersonFilterInput]
   or: [ModelPersonFilterInput]
   not: ModelPersonFilterInput
@@ -83,6 +92,8 @@ input ModelPersonFilterInput {
 type Query {
   getPerson(id: ID!): Person
   listPersons(filter: ModelPersonFilterInput, limit: Int, nextToken: String): ModelPersonConnection
+  getExpense(id: ID!): Expense
+  listExpenses(filter: ModelExpenseFilterInput, limit: Int, nextToken: String): ModelExpenseConnection
 }
 
 input CreatePersonInput {
@@ -90,6 +101,7 @@ input CreatePersonInput {
   name: String!
   email: String
   jobTitle: String
+  profileImage: String
 }
 
 input UpdatePersonInput {
@@ -97,6 +109,7 @@ input UpdatePersonInput {
   name: String
   email: String
   jobTitle: String
+  profileImage: String
 }
 
 input DeletePersonInput {
@@ -107,10 +120,49 @@ type Mutation {
   createPerson(input: CreatePersonInput!): Person
   updatePerson(input: UpdatePersonInput!): Person
   deletePerson(input: DeletePersonInput!): Person
+  createExpense(input: CreateExpenseInput!): Expense
+  updateExpense(input: UpdateExpenseInput!): Expense
+  deleteExpense(input: DeleteExpenseInput!): Expense
 }
 
 type Subscription {
   onCreatePerson: Person @aws_subscribe(mutations: ["createPerson"])
   onUpdatePerson: Person @aws_subscribe(mutations: ["updatePerson"])
   onDeletePerson: Person @aws_subscribe(mutations: ["deletePerson"])
+  onCreateExpense: Expense @aws_subscribe(mutations: ["createExpense"])
+  onUpdateExpense: Expense @aws_subscribe(mutations: ["updateExpense"])
+  onDeleteExpense: Expense @aws_subscribe(mutations: ["deleteExpense"])
+}
+
+type ModelExpenseConnection {
+  items: [Expense]
+  nextToken: String
+}
+
+input ModelExpenseFilterInput {
+  id: ModelIDFilterInput
+  title: ModelStringFilterInput
+  amount: ModelIntFilterInput
+  date: ModelStringFilterInput
+  and: [ModelExpenseFilterInput]
+  or: [ModelExpenseFilterInput]
+  not: ModelExpenseFilterInput
+}
+
+input CreateExpenseInput {
+  id: ID
+  title: String
+  amount: Int
+  date: String
+}
+
+input UpdateExpenseInput {
+  id: ID!
+  title: String
+  amount: Int
+  date: String
+}
+
+input DeleteExpenseInput {
+  id: ID
 }

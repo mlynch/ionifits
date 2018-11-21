@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/auth/cognito8b79fe18-cloudformation-template.yml",
 				"logicalId": "authcognito8b79fe18"
 			},
-			"lastPushTimeStamp": "2018-11-20T20:24:31.170Z",
+			"lastPushTimeStamp": "2018-11-21T20:16:46.866Z",
 			"output": {
 				"AppClientSecret": "149o6poics7sm9mctbgreg9mu7otite4ttno8s1uaadbg164212t",
 				"UserPoolId": "us-west-2_VDoroVC7Q",
@@ -49,8 +49,14 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiionifits"
 			},
-			"lastPushTimeStamp": "2018-11-20T20:24:31.170Z",
-			"lastPushDirHash": "Sr+ilx53LzHlFIrXlJ8pgjTpWqM="
+			"lastPushTimeStamp": "2018-11-21T20:16:48.520Z",
+			"lastPushDirHash": "8onGKu2/5q+/Elxmzs7wMg/eK88="
+		}
+	},
+	"analytics": {
+		"ionifits": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

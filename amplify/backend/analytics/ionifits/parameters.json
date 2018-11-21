@@ -1,0 +1,11 @@
+{
+    "appName": "ionifits",
+    "roleName": "pinpointLambdaRole317946a4",
+    "cloudWatchPolicyName": "cloudWatchPolicy317946a4",
+    "pinpointPolicyName": "pinpointPolicy317946a4",
+    "authPolicyName": "pinpoint_amplify_317946a4",
+    "unauthPolicyName": "pinpoint_amplify_317946a4",
+    "authRoleName": "ionifits-20181120141304-authRole",
+    "unauthRoleName": "ionifits-20181120141304-unauthRole",
+    "IAMPrefix": "956920542798"
+}

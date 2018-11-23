@@ -3,7 +3,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { ModalController } from '@ionic/angular';
 
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import { APIService, ListPersonsQuery } from '../API.service';
+import { APIService, ListPersonsQuery, CreatePersonInput } from '../API.service';
 
 import { PersonCreateModalComponent } from '../person-create-modal/person-create-modal.component';
 
@@ -22,16 +22,31 @@ export class PeoplePage implements OnInit {
 
   }
 
-  async createPerson() {
+  async ngOnInit() {
+    this.loadPeople();
+  }
+
+  async getNewPerson() {
+    console.log('Opening create person modal');
     this.modal = await this.modalController.create({
       component: PersonCreateModalComponent,
       //componentProps: props
     });
+    this.modal.onDidDismiss().then((result) => {
+      console.log('Modal closed', result);
+      this.createPerson(result.data.person);
+    });
     return this.modal.present();
   }
 
-  async ngOnInit() {
+  async loadPeople() {
     this.people = await this.apiService.ListPersons();
     console.log('Loaded people', this.people);
+  }
+
+  async createPerson(person: CreatePersonInput) {
+    const ret = await this.apiService.CreatePerson(person);
+    console.log('Created person!');
+    this.loadPeople();
   }
 }

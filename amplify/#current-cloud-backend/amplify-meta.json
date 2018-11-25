@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/auth/cognito8b79fe18-cloudformation-template.yml",
 				"logicalId": "authcognito8b79fe18"
 			},
-			"lastPushTimeStamp": "2018-11-21T20:16:46.866Z",
+			"lastPushTimeStamp": "2018-11-23T21:36:38.651Z",
 			"output": {
 				"AppClientSecret": "149o6poics7sm9mctbgreg9mu7otite4ttno8s1uaadbg164212t",
 				"UserPoolId": "us-west-2_VDoroVC7Q",
@@ -49,8 +49,59 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiionifits"
 			},
-			"lastPushTimeStamp": "2018-11-21T20:16:48.520Z",
+			"lastPushTimeStamp": "2018-11-23T21:36:38.654Z",
 			"lastPushDirHash": "8onGKu2/5q+/Elxmzs7wMg/eK88="
+		}
+	},
+	"analytics": {
+		"ionifits": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"logicalId": "analyticsionifits"
+			},
+			"lastPushTimeStamp": "2018-11-23T21:36:38.654Z",
+			"output": {
+				"appName": "ionifits",
+				"Region": "us-east-1",
+				"Id": "9961c0c552cf4e4686f4a8f016ac040a"
+			},
+			"lastPushDirHash": "oNNW4lXwNgAHXjaYeRfKIez/pMs="
+		}
+	},
+	"storage": {
+		"s3c3083ce5": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storages3c3083ce5"
+			},
+			"lastPushTimeStamp": "2018-11-23T21:36:38.655Z",
+			"output": {
+				"BucketName": "ionifitse3d5abcc021b4b029e24f7997ee46eae",
+				"Region": "us-west-2"
+			},
+			"lastPushDirHash": "wWOek2Kz3uPb1n329iK4rKBRdqE="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-11-23T21:36:38.657Z",
+			"output": {
+				"S3BucketSecureURL": "https://ionifits-20181123153511--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://ionifits-20181123153511--hostingbucket.s3-website-us-west-2.amazonaws.com",
+				"Region": "us-west-2",
+				"HostingBucketName": "ionifits-20181123153511--hostingbucket"
+			},
+			"lastPushDirHash": "l2LQ86kjledwCOI8DkxbVHCD5gk="
 		}
 	}
 }

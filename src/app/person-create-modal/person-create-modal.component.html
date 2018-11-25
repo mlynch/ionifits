@@ -16,6 +16,10 @@
   </ion-header>
   <ion-content>
     <ion-list lines="true">
+      
+      <amplify-photo-picker framework="ionic" (picked)="onImagePicked($event)">
+      </amplify-photo-picker>
+      
       <ion-item>
         <ion-label color="primary">Name </ion-label>
         <ion-input placeholder="Name" [(ngModel)]="person.name"></ion-input>

@@ -1,0 +1,9 @@
+{
+    "bucketName": "ionifitse3d5abcc021b4b029e24f7997ee46eae",
+    "authPolicyName": "s3_amplify_c3083ce5",
+    "unauthPolicyName": "s3_amplify_c3083ce5",
+    "authRoleName": "ionifits-20181120141304-authRole",
+    "unauthRoleName": "ionifits-20181120141304-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": ""
+}

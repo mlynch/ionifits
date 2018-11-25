@@ -5,6 +5,7 @@
   "homepage": "http://ionicframework.com/",
   "scripts": {
     "ng": "ng",
+    "update-aws-exports": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts",
     "start": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng serve; ng serve",
     "build": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng build --prod; ng build --prod",
     "test": "ng test",

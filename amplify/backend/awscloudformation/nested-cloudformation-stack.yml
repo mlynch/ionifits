@@ -146,6 +146,45 @@
 					"DeploymentTimestamp": "1542831279348"
 				}
 			}
+		},
+		"analyticsionifits": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"Parameters": {
+					"appName": "ionifits",
+					"roleName": "pinpointLambdaRole317946a4",
+					"cloudWatchPolicyName": "cloudWatchPolicy317946a4",
+					"pinpointPolicyName": "pinpointPolicy317946a4",
+					"authPolicyName": "pinpoint_amplify_317946a4",
+					"unauthPolicyName": "pinpoint_amplify_317946a4",
+					"authRoleName": "ionifits-20181120141304-authRole",
+					"unauthRoleName": "ionifits-20181120141304-unauthRole",
+					"IAMPrefix": "956920542798"
+				}
+			}
+		},
+		"storages3c3083ce5": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"Parameters": {
+					"bucketName": "ionifitse3d5abcc021b4b029e24f7997ee46eae",
+					"authPolicyName": "s3_amplify_c3083ce5",
+					"unauthPolicyName": "s3_amplify_c3083ce5",
+					"authRoleName": "ionifits-20181120141304-authRole",
+					"unauthRoleName": "ionifits-20181120141304-unauthRole",
+					"authPermissions": "rw",
+					"unauthPermissions": ""
+				}
+			}
+		},
+		"hostingS3AndCloudFront": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/ionifits-20181120141304-deployment/amplify-cfn-templates/hosting/template.json",
+				"Parameters": {}
+			}
 		}
 	},
 	"Outputs": {

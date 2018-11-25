@@ -48,5 +48,17 @@ export class PeoplePage implements OnInit {
     const ret = await this.apiService.CreatePerson(person);
     console.log('Created person!');
     this.loadPeople();
+
+    this.amplifyService.analytics().record({
+      name: 'personCreated', 
+    });
+  }
+
+  getProfileImage(path) {
+    /*
+    const ret = this.amplifyService.storage().get(path);
+    console.log('Stogage got', ret);
+    */
+    //return `https://${amplify.aws_user_files_s3_bucket}.s3.amazonaws.com/${path}`;
   }
 }
